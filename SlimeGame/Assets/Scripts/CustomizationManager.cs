@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
+//Menu de customizacion
 public class CustomizationManager : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -117,17 +117,4 @@ public class CustomizationManager : MonoBehaviour
             actualPlunger.SetActive(true);
     }
 
-
-    void Start()
-    {
-        
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-       
-        
-    }
 }

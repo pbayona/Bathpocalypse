@@ -2,15 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Componente de rotacion para los objetos de la tienda
 public class rotateSkin : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
           gameObject.transform.RotateAround(gameObject.transform.position, Vector3.up, 20 * Time.deltaTime);

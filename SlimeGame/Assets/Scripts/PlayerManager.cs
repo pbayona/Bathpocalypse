@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using System.IO;
+
+//Instanciacion de jugadores
 public class PlayerManager : MonoBehaviour
 {
-
     PhotonView view;
     GameObject controller;
 

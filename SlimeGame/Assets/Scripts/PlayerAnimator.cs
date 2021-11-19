@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Animaciones del personaje
 public class PlayerAnimator : MonoBehaviour
 {
     [SerializeField] Animator slimeAnimatorController;

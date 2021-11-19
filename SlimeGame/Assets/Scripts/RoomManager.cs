@@ -5,6 +5,7 @@ using Photon.Pun;
 using UnityEngine.SceneManagement;
 using System.IO;
 
+//Gestion de inicializacion de gamemanager y playermanager en las salas
 public class RoomManager : MonoBehaviourPunCallbacks
 {
     public static RoomManager Instance;

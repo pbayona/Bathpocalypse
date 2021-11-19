@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using System.IO;
 
+//Arma - esponja. 
 public class Sponge : Gun
 {
     float radius = 2f;
@@ -25,18 +26,14 @@ public class Sponge : Gun
     {
         GameManager.am.playSound(5, 1f);
     }
-    public override void Use()
-    {
-
-    }
+    public override void Use(){}
 
     void Explode()
     {
 
-        //Show particles water
+        //Mostrar particulas de agua
         PhotonNetwork.Instantiate(Path.Combine("Bubbles", "Prefabs", "Bubbles"), transform.position, Quaternion.Euler(-90f, 0f, 0f));
-        //Check nearby objects 
-        //If player-> take damage
+        //Comprobar objetos cercanos
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
 
         foreach (Collider c in colliders)
@@ -46,7 +43,6 @@ public class Sponge : Gun
                 c.gameObject.GetComponent<IDamageable>()?.TakeDamage(((GunInfo)itemInfo).damage);
             }
         }
-        //Destroy gameobject
         //Destroy gameobject
         id.RPC("RPC_Destroy", RpcTarget.All);
     }

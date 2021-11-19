@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Gestor de respawns aleatorios tras muerte
 public class SpawnManager : MonoBehaviour
 {
     public static SpawnManager Instance;

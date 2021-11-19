@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using System.IO;
 
+//Globo de agua - gestiona lanzamiento, daño y explosion
 public class WaterBalloon : Gun
 {
     public float delay = 10f;
@@ -21,7 +22,6 @@ public class WaterBalloon : Gun
         id = GetComponent<PhotonView>();
         if (!id.IsMine)
         {
-            Debug.Log("No es mio");
             Destroy(GetComponent<Rigidbody>());
         }
     }
@@ -50,11 +50,9 @@ public class WaterBalloon : Gun
 
     void Explode()
     {
-
-        //Show particles water
+        //Mostrar particulas de agua
         PhotonNetwork.Instantiate(Path.Combine("SimpleFX", "Prefabs", "FX_BlueExplosion"), transform.position, transform.rotation);
-        //Check nearby objects 
-        //If player-> take damage
+        //Comprobar objetos cercanos
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
 
         foreach(Collider c in colliders)

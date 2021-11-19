@@ -7,6 +7,7 @@ using Hashtable = ExitGames.Client.Photon.Hashtable;
 using ExitGames.Client.Photon;
 using Photon.Realtime;
 
+//Controlador del jugador - 
 public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 {
 
@@ -176,7 +177,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
     }
 
-    public void handleMove()
+    public void handleMove()    //Movimiento y salto
     {
         if (canClimb && !characterController.isGrounded)    //Si está trepando
         {
@@ -253,7 +254,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
     }
 
-    public void handleJump()
+    public void handleJump()    //Salto simple y doble
     {
 
         if (characterController.isGrounded || canClimb) //Si está trepando o en el suelo
@@ -281,7 +282,6 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
                 }
 
             }
-
         }
         else
         {
@@ -290,9 +290,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
                 moveInput.y = jumpHeight * doubleJumpMult;
                 doubleJump = false;
             }
-
         }
-
 
         moveInput.y += gravity * Time.deltaTime;
         characterController.Move(moveInput * Time.deltaTime);
@@ -343,7 +341,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         characterController.Move(moveInput * Time.deltaTime);
     }
 
-    public void handleCamera()
+    public void handleCamera()  //Manejo de cámara
     {
 
         float rotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * 15 * PlayerPrefs.GetFloat("sensitivity");
@@ -380,7 +378,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
     }
 
-    void handleShoot()
+    void handleShoot()  //Gestion del disparo o lanzamiento de objetos
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -446,7 +444,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
 
 
-    void handleLimits()
+    void handleLimits() //Si el jugador cae fuera de la zona de juego
     {
         if (transform.position.y < -20f)
         {
@@ -454,7 +452,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         }
     }
 
-    void handleWeaponChange()
+    void handleWeaponChange()   //Cambio de armas
     {
         for (int i = 0; i < items.Length; i++)
         {
@@ -504,7 +502,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
         }
     }
-    void ChangeItem(int itemId)
+    void ChangeItem(int itemId) //Cambiar item actual
     {
         if (itemId == previousItemIndex) return;
 
@@ -615,7 +613,6 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
     public void TakeDamage(float dmg)
     {
-        Debug.Log("Me hizo pupita");
         id.RPC("RPC_TakeDamage", RpcTarget.All, dmg);   //Lo lanza a todas las instancias de este jugador
     }
 

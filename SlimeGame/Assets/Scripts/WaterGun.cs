@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
+//Pistola de agua - gestiona disparo y recarga
 public class WaterGun : Gun
 {
     [SerializeField] ParticleSystem waterJet;
@@ -116,7 +117,7 @@ public class WaterGun : Gun
         Stop();
     }
 
-    public void Stop()
+    public void Stop()  //Parar de disparar
     {
         isShooting = false;
         waterJet.Stop();

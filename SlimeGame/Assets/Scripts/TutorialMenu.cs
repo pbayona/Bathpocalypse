@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Controlador de menu
 public class TutorialMenu : MonoBehaviour
 {
     public Image tutorial;

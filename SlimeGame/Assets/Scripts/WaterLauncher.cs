@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using System.IO;
 
+//Lanzar granadas - gestiona el lanzamiento del tipo de granada escogida: pato, esponja o globo
 public class WaterLauncher : Gun
 {
     [SerializeField] float throwForce = 40f;
@@ -32,7 +33,7 @@ public class WaterLauncher : Gun
         int skin = (int)id.Owner.CustomProperties["waterGrenadeSkin"];
 
         Renderer r = charger.GetComponent<Renderer>();
-        switch (skin)
+        switch (skin)   //Modificacion segun skin
         {
             case 0:
                 //No hace nada, skin por defecto
@@ -65,7 +66,7 @@ public class WaterLauncher : Gun
     {
         WaterGun.ammo -= 30f;
         if (WaterGun.ammo <= 0) WaterGun.ammo = 0f;
-        GameObject grenade = PhotonNetwork.Instantiate(grenades[currentType], transform.position + transform.forward*1.2f + transform.up*1.2f +transform.right*0.5f, transform.rotation);
+        GameObject grenade = PhotonNetwork.Instantiate(grenades[currentType], transform.position + transform.forward * 1.2f + transform.up * 1.2f + transform.right * 0.5f, transform.rotation);
         Rigidbody rb = grenade.GetComponent<Rigidbody>();
         rb.AddForce(Camera.main.transform.forward * throwForce, ForceMode.Impulse);
     }

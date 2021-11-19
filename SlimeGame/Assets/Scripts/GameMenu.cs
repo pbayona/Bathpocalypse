@@ -13,7 +13,7 @@ public class GameMenu : MonoBehaviourPunCallbacks
     public GameObject button4;
 
     public Text[] panelTexts;
-    // Start is called before the first frame update
+
     void Start()
     {
         if (PlayerPrefs.GetInt("language") == 1)
@@ -30,11 +30,7 @@ public class GameMenu : MonoBehaviourPunCallbacks
                 panelTexts[i].text = "Waiting for other player...";
             }
         }
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
         PlayerPrefs.SetInt("language", PlayerPrefs.GetInt("language"));
         if (PlayerPrefs.GetInt("language") == 1)
         {
@@ -51,6 +47,10 @@ public class GameMenu : MonoBehaviourPunCallbacks
             button4.GetComponentInChildren<Text>().text = "Start";
         }
     }
+
+    // Update is called once per frame
+    void Update()
+    {}
 
     public void goBackToMenu()
     {

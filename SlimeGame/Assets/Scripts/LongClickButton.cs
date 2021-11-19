@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine;
 
+//Gestion de clicks en version movil
 public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public bool pointerDown;

@@ -6,6 +6,7 @@ using System.IO;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 using Photon.Realtime;
 
+//Arma: pato de goma. Implementacion
 public class Duck : MonoBehaviourPunCallbacks
 {
     float radius = 3f;
@@ -25,7 +26,6 @@ public class Duck : MonoBehaviourPunCallbacks
         id = GetComponent<PhotonView>();
         if (!id.IsMine)
         {
-            Debug.Log("No es mio");
             Destroy(GetComponent<Rigidbody>());
         }
     }
@@ -34,7 +34,7 @@ public class Duck : MonoBehaviourPunCallbacks
     {
         if (id.IsMine)
         {
-            if (hasExploded)    //Check dmg every sec for hp reduction
+            if (hasExploded)    //Comprobar daño en las oleadas de agua
             {
                 elapsedTime += Time.deltaTime;
 
@@ -44,8 +44,8 @@ public class Duck : MonoBehaviourPunCallbacks
 
                     PhotonNetwork.Instantiate(Path.Combine("SimpleFX", "Prefabs", "FX_BlueExplosion"), transform.position, transform.rotation);    //Al explotar activa la deteccion de daño y las particulas
                     elapsedTime = 0.0f;
+
                     //Check nearby objects 
-                    //If player-> take damage
                     Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
 
                     foreach (Collider c in colliders)
@@ -68,11 +68,11 @@ public class Duck : MonoBehaviourPunCallbacks
 
     }
 
-    void Explode()
+    void Explode()  //Explosion y gestion de daño
     {
         if (id.IsMine)
         {
-            //Show particles water
+            //Mostrar efecto de particulas
             PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Weapons", "FX", "AreaEffect"), new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), transform.rotation);    //Al explotar activa la deteccion de daño y las particulas
             Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
 

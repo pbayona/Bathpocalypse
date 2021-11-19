@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
+//Componente de los cubos de munición - gestiona colision
 public class AmmoRecharge : MonoBehaviour
 {
     Vector3 rot = new Vector3(0f, 1f, 0.0f);

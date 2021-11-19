@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using System.IO;
 
+//Arma cuerpo a cuerpo - desatascador
 public class Plunger : Gun
 {
     Animator attackAnim;
@@ -22,7 +23,6 @@ public class Plunger : Gun
     [SerializeField] Animator plungerController;
     void Start()
     {
-        //attackAnim = plunger.GetComponent<Animator>();
         currentWait = 0.0f;
 
         id = itemGameObject.GetComponent<PhotonView>();
@@ -45,8 +45,6 @@ public class Plunger : Gun
             default:
                 break;
         }
-
-
     }
 
     void Update()
@@ -62,17 +60,16 @@ public class Plunger : Gun
             }
         }
     }
-    public override void Use()
+    public override void Use()  //Comprueba si se esta apuntando a un enemigo y se encuentra a suficiente distancia
     {
         if (!used)
         {
             used = true;
-            //Play animation hitting
 
             //Raycast para detectar si está delante y cerca
             ray = new Ray(currentPlayer.transform.position, currentPlayer.transform.forward * 1.2f);
             plungerController.SetBool("Attacking", true);
-           
+
             if (Physics.Raycast(ray, out RaycastHit hit, attackRange))
             {
                 PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Weapons", "FX", "HitEffect"), hit.point, transform.rotation);
@@ -87,11 +84,10 @@ public class Plunger : Gun
     }
 
     public override void End()
-    { //plungerController.SetBool("Attacking", false); 
-    }
+    {}
 
     void HitSound()
     {
-        GameManager.am.playSound(1,1f);
+        GameManager.am.playSound(1, 1f);
     }
 }

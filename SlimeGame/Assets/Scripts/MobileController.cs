@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Controles para la version movil
 public class MobileController : MonoBehaviour
 {
     [SerializeField] FloatingJoystick joystick;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
+//Chorro de agua de la pistola de agua
 public class WaterJet : MonoBehaviour
 {
     private ParticleSystem waterJet;
@@ -12,9 +13,6 @@ public class WaterJet : MonoBehaviour
 
     PhotonView playerId;
 
-
-    //Cambiar direccion del waterjet a la de la camara
-    //Camera.main.transform.forward
 
     void Start()
     {

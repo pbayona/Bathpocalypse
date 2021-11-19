@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Gestor de audio
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] List<AudioClip> musica;
@@ -28,12 +29,6 @@ public class AudioManager : MonoBehaviour
             musicSource.PlayOneShot(musica[3]);
         }
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void playMusic(int n)

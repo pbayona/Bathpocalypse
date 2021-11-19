@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
 
+//Menu de opciones ingame
 public class ShowOptions : MonoBehaviourPunCallbacks
 {
     // Start is called before the first frame update

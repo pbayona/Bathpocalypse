@@ -5,6 +5,7 @@ using UnityEngine;
 using Photon.Pun;
 using UnityEngine.UI;
 
+//Controlador del menu
 public class MenuController : MonoBehaviourPunCallbacks
 {
     // Start is called before the first frame update
@@ -49,9 +50,7 @@ public class MenuController : MonoBehaviourPunCallbacks
         if(ready){
             SceneManager.LoadScene("GameMenu");
 
-        }
-        
-        
+        }        
     }
     void Start()
     {

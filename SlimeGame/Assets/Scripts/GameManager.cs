@@ -9,6 +9,7 @@ using UnityEngine.UI;
 using Photon.Realtime;
 using UnityEngine.SceneManagement;
 
+//Manejo del juego: gestiona las estadísticas y el inicio de la partida
 public class GameManager : MonoBehaviourPunCallbacks
 {
 
@@ -51,7 +52,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     GameObject statsButton;
     bool mobile = false;
 
-    // Start is called before the first frame update
+
     private void Awake()
     {
         am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
@@ -173,7 +174,6 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (id.IsMine)
@@ -242,7 +242,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
-    void OnGUI()
+    void OnGUI()    //Manejo de la interfaz
     {
         if (id.IsMine && gameStarted)
         {
@@ -260,7 +260,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
-    public void UpdateScore(Player killer)
+    public void UpdateScore(Player killer)  //Actualización de puntos
     {
         if (teamBattle)
         {
@@ -282,7 +282,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         orderScore();
     }
 
-    private void orderScore()
+    private void orderScore()   //Ordenar jugadores segun puntuacion
     {
         for (int i = 0; i < playersScore.Count - 1; i++)
         {

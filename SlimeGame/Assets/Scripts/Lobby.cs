@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
+//Gestor de lobbies
 public class Lobby : MonoBehaviourPunCallbacks
 {
 
@@ -356,12 +357,6 @@ public class Lobby : MonoBehaviourPunCallbacks
             if (PhotonNetwork.CurrentRoom.PlayerCount == maxPlayersInRoom && PhotonNetwork.IsMasterClient && !start.IsActive())
             {
                 start.gameObject.SetActive(true);
-                /*if (loadReady)
-                {   
-                     PhotonNetwork.CurrentRoom.IsOpen = false;
-                     PhotonNetwork.LoadLevel("SampleScene");
-                    loadReady = false;
-                }*/
             }
         }
 

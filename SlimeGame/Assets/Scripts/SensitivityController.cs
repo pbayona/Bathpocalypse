@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Gestiona sensibilidad del raton o movil
 public class SensitivityController : MonoBehaviour
 {
     void Awake(){
@@ -13,16 +14,5 @@ public class SensitivityController : MonoBehaviour
            playercontroller.sensitivityY = 15*PlayerPrefs.GetFloat("sensitivity",1);
            Debug.Log(playercontroller.sensitivityX + playercontroller.sensitivityY);
         });
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -4,7 +4,8 @@ using UnityEngine;
 using Photon.Pun;
 using System.IO;
 
-public class AmmoManager : MonoBehaviourPunCallbacks
+//Gestor de municion - Spawn y respawn de los puntos de agua
+public class AmmoManager : MonoBehaviourPunCallbacks      
 {
 
     PhotonView id;
@@ -62,7 +63,6 @@ public class AmmoManager : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            Debug.Log("Ammo destroyed");
             ammoSpawned[pos] = false;
             Invoke("restoreAmmo", 3);
         }
