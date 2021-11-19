@@ -127,6 +127,12 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
             staminaTex.Apply();
         }
 
+        if (PlayerPrefs.GetFloat("sensitivity") <= 0f)
+        {
+            PlayerPrefs.SetFloat("sensitivity", 0.5f);
+        }
+        Debug.Log("El valor de sens es: " + PlayerPrefs.GetFloat("sensitivity"));
+
     }
 
     void Start()

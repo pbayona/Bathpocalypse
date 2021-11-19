@@ -25,6 +25,13 @@ public class Options : MonoBehaviour
         });
 
         sliderSensitivity.value = PlayerPrefs.GetFloat("sensitivity", 1);
+
+        if (sliderSensitivity.value <= 0.1f)
+        {
+            sliderSensitivity.value = 0.1f;
+            PlayerPrefs.SetFloat("sensitivity", sliderSensitivity.value);
+        }
+
         sliderSensitivity.onValueChanged.AddListener(delegate {
             PlayerPrefs.SetFloat("sensitivity", sliderSensitivity.value);
             Debug.Log(sliderSensitivity.value);
